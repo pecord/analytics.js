@@ -4553,9 +4553,9 @@ exports.cookie = cookie;
  *
  *      domain.levels('http://www.google.co.uk');
  *      // => ["co.uk", "google.co.uk", "www.google.co.uk"]
- * 
+ *
  * Example:
- * 
+ *
  *      domain('http://localhost:3000/baz');
  *      // => ''
  *      domain('http://dev:3000/baz');
@@ -4564,7 +4564,7 @@ exports.cookie = cookie;
  *      // => ''
  *      domain('http://segment.io/baz');
  *      // => 'segment.io'
- * 
+ *
  * @param {String} url
  * @return {String}
  * @api public
@@ -6713,14 +6713,14 @@ module.exports = pick;
 
 /**
  * prevent default on the given `e`.
- * 
+ *
  * examples:
- * 
+ *
  *      anchor.onclick = prevent;
  *      anchor.onclick = function(e){
  *        if (something) return prevent(e);
  *      };
- * 
+ *
  * @param {Event} e
  */
 
@@ -6745,7 +6745,7 @@ var pattern = /(\w+)\[(\d+)\]/
 
 /**
  * Safely encode the given string
- * 
+ *
  * @param {String} str
  * @return {String}
  * @api private
@@ -6761,7 +6761,7 @@ var encode = function(str) {
 
 /**
  * Safely decode the string
- * 
+ *
  * @param {String} str
  * @return {String}
  * @api private
@@ -8558,6 +8558,7 @@ module.exports = function loadScript(options, fn){
   var script = document.createElement('script');
   script.type = 'text/javascript';
   script.async = true;
+  script.crossorigin = 'anonymous';
   script.src = options.src;
 
   // If we have a fn, attach event handlers, even in IE. Based off of
@@ -9420,12 +9421,12 @@ var regexp = /[a-z0-9][a-z0-9\-]*[a-z0-9]\.[a-z\.]{2,6}$/i;
 
 /**
  * Get the top domain.
- * 
+ *
  * Official Grammar: http://tools.ietf.org/html/rfc883#page-56
  * Look for tlds with up to 2-6 characters.
- * 
+ *
  * Example:
- * 
+ *
  *      domain('http://localhost:3000/baz');
  *      // => ''
  *      domain('http://dev:3000/baz');
@@ -9434,7 +9435,7 @@ var regexp = /[a-z0-9][a-z0-9\-]*[a-z0-9]\.[a-z\.]{2,6}$/i;
  *      // => ''
  *      domain('http://segment.io/baz');
  *      // => 'segment.io'
- * 
+ *
  * @param {String} url
  * @return {String}
  * @api public
@@ -17530,7 +17531,7 @@ Quantcast.prototype._labels = function(type) {
  * TODO: combatible error handling?
  */
 
-module.exports = function(arr, fn, initial){  
+module.exports = function(arr, fn, initial){
   var idx = 0;
   var len = arr.length;
   var curr = arguments.length == 3
@@ -17540,7 +17541,7 @@ module.exports = function(arr, fn, initial){
   while (idx < len) {
     curr = fn.call(null, curr, arr[idx], ++idx, arr);
   }
-  
+
   return curr;
 };
 }, {}],
@@ -18171,24 +18172,24 @@ function noop() {}
 /**
  * Module dependencies.
  */
- 
+
 var parse = require('querystring').parse;
- 
+
 /**
  * Expose `ads`
  */
- 
+
 module.exports = ads;
- 
+
 /**
  * All the ad query params we look for.
  */
- 
+
 var QUERYIDS = {
   'btid' : 'dataxu',
   'urid' : 'millennial-media'
 };
- 
+
 /**
  * Get all ads info from the given `querystring`
  *
@@ -18196,7 +18197,7 @@ var QUERYIDS = {
  * @return {Object}
  * @api private
  */
- 
+
 function ads(query){
   var params = parse(query);
   for (var key in params) {
@@ -18311,7 +18312,7 @@ function all(){
 
 /**
  * Unserialize the given "stringified" javascript.
- * 
+ *
  * @param {String} val
  * @return {Mixed}
  */
